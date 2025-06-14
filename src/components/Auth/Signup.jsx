@@ -23,18 +23,17 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     // Validate passwords match
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
+      setLoading(false);
       return;
     }
 
-    setLoading(true);
-
     try {
-      console.log("Attempting to sign up...");
-      const response = await fetch("http://localhost:5000/api/auth/signup", {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,12 +45,10 @@ const Signup = () => {
         }),
       });
 
-      console.log("Response received:", response.status);
       const data = await response.json();
-      console.log("Response data:", data);
 
       if (!response.ok) {
-        throw new Error(data.message || "Signup failed");
+        throw new Error(data.message || "Registration failed");
       }
 
       // Store token and user data
@@ -61,11 +58,7 @@ const Signup = () => {
       // Redirect to dashboard
       navigate("/dashboard");
     } catch (err) {
-      console.error("Signup error:", err);
-      setError(
-        err.message ||
-          "Failed to connect to the server. Please try again later."
-      );
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -75,9 +68,7 @@ const Signup = () => {
     <div className="auth-container">
       <div className="auth-card">
         <h2>Create Account</h2>
-        <p className="auth-subtitle">
-          Join us to start tracking your investments
-        </p>
+        <p className="auth-subtitle">Sign up to get started</p>
 
         {error && <div className="auth-error">{error}</div>}
 
@@ -118,7 +109,7 @@ const Signup = () => {
               onChange={handleChange}
               required
               placeholder="Create a password"
-              minLength="8"
+              minLength="6"
             />
           </div>
 
@@ -132,12 +123,12 @@ const Signup = () => {
               onChange={handleChange}
               required
               placeholder="Confirm your password"
-              minLength="8"
+              minLength="6"
             />
           </div>
 
           <button type="submit" className="auth-button" disabled={loading}>
-            {loading ? "Creating Account..." : "Create Account"}
+            {loading ? "Creating account..." : "Sign Up"}
           </button>
         </form>
 
