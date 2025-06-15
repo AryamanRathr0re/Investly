@@ -225,6 +225,32 @@ tr:hover {
   color: #ff5757;
 }
 
+.investment-row {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.investment-row:hover {
+  background: rgba(100, 255, 218, 0.1) !important;
+  transform: translateX(4px);
+}
+
+.investment-row td {
+  transition: all 0.2s ease;
+}
+
+.investment-row:hover td {
+  color: #64ffda;
+}
+
+.investment-row:hover td.positive {
+  color: #4caf50;
+}
+
+.investment-row:hover td.negative {
+  color: #ff5757;
+}
+
 @media (max-width: 768px) {
   .portfolio-overview {
     padding: 1rem;
@@ -233,11 +259,26 @@ tr:hover {
   .portfolio-header {
     flex-direction: column;
     gap: 1rem;
-    align-items: stretch;
+    align-items: flex-start;
   }
 
   .portfolio-actions {
+    width: 100%;
     flex-direction: column;
+  }
+
+  .add-investment-btn,
+  .update-prices-btn {
+    width: 100%;
+  }
+
+  .investments-table {
+    margin: 0 -1rem;
+    width: calc(100% + 2rem);
+  }
+
+  .investment-row:hover {
+    transform: none;
   }
 
   .add-investment-form form {

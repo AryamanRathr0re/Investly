@@ -86,7 +86,7 @@ const LandingPage = () => {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-section">
-            <h4>PortfolioTrack</h4>
+            <h4>PortoTracker</h4>
             <p>Your trusted investment companion</p>
           </div>
           <div className="footer-section">
@@ -105,7 +105,7 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 PortfolioTrack. All rights reserved.</p>
+          <p>&copy; 2024 PortoTracker. All rights reserved. Made by Aryaman Rathore</p>
         </div>
       </footer>
     </div>

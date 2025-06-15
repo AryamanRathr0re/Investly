@@ -1,0 +1,267 @@
+.asset-detail-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.asset-detail-content {
+  background: #1a1a1a;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.asset-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.asset-detail-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.asset-detail-title h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #fff;
+}
+
+.asset-name {
+  color: #a0a0a0;
+  font-size: 14px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.asset-detail-summary {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.price-section {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.current-price {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.price-change {
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.price-change.positive {
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.price-change.negative {
+  color: #f44336;
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.market-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-item .label {
+  color: #a0a0a0;
+  font-size: 12px;
+}
+
+.detail-item .value {
+  color: #fff;
+  font-size: 14px;
+}
+
+.asset-detail-chart {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.chart-header h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+}
+
+.timeframe-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.timeframe-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a0a0a0;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timeframe-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.timeframe-btn.active {
+  background: #64ffda;
+  color: #1a1a1a;
+  border-color: #64ffda;
+}
+
+.chart-container {
+  height: 300px;
+  position: relative;
+}
+
+.chart-placeholder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0a0a0;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.asset-detail-info {
+  padding: 20px;
+}
+
+.info-section h3 {
+  margin: 0 0 16px 0;
+  color: #fff;
+  font-size: 18px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.info-item .label {
+  color: #a0a0a0;
+  font-size: 12px;
+}
+
+.info-item .value {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.info-item .value.positive {
+  color: #4caf50;
+}
+
+.info-item .value.negative {
+  color: #f44336;
+}
+
+.asset-detail-loading,
+.asset-detail-error {
+  padding: 40px;
+  text-align: center;
+  color: #a0a0a0;
+  font-size: 16px;
+}
+
+.asset-detail-error {
+  color: #f44336;
+}
+
+@media (max-width: 768px) {
+  .asset-detail-content {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .asset-detail-modal {
+    padding: 0;
+  }
+
+  .price-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .market-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-container {
+    height: 250px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

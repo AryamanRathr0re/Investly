@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PortfolioCharts from "./PortfolioCharts";
+import PortfolioWidgets from "./PortfolioWidgets";
+import AssetDetail from "./AssetDetail";
 import "./PortfolioOverview.css";
 
 const PortfolioOverview = () => {
@@ -10,6 +12,7 @@ const PortfolioOverview = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [showAddForm, setShowAddForm] = useState(false);
+  const [selectedAsset, setSelectedAsset] = useState(null);
   const [newInvestment, setNewInvestment] = useState({
     symbol: "",
     name: "",
@@ -120,6 +123,14 @@ const PortfolioOverview = () => {
     }
   };
 
+  const handleAssetClick = (investment) => {
+    setSelectedAsset(investment);
+  };
+
+  const handleCloseAssetDetail = () => {
+    setSelectedAsset(null);
+  };
+
   if (loading) {
     return <div className="portfolio-loading">Loading portfolio data...</div>;
   }
@@ -147,6 +158,10 @@ const PortfolioOverview = () => {
 
       {portfolio && (
         <>
+          <PortfolioWidgets
+            portfolioData={portfolio}
+            onWidgetSelect={handleAssetClick}
+          />
           <PortfolioCharts portfolioData={portfolio} />
 
           <div className="portfolio-summary">
@@ -307,7 +322,11 @@ const PortfolioOverview = () => {
                       100;
 
                     return (
-                      <tr key={investment._id}>
+                      <tr
+                        key={investment._id}
+                        onClick={() => handleAssetClick(investment)}
+                        className="investment-row"
+                      >
                         <td>{investment.symbol}</td>
                         <td>{investment.name}</td>
                         <td>{investment.type}</td>
@@ -333,6 +352,10 @@ const PortfolioOverview = () => {
             </div>
           </div>
         </>
+      )}
+
+      {selectedAsset && (
+        <AssetDetail asset={selectedAsset} onClose={handleCloseAssetDetail} />
       )}
     </div>
   );

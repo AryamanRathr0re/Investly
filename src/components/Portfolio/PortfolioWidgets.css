@@ -1,0 +1,263 @@
+.portfolio-widgets {
+  margin-bottom: 2rem;
+}
+
+.widgets-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.widget {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.widget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.widget-large {
+  grid-column: span 8;
+}
+
+.widget-medium {
+  grid-column: span 6;
+}
+
+.widget-small {
+  grid-column: span 4;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.widget-header h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.widget-toggle {
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.widget-toggle:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.widget-content {
+  padding: 1.5rem;
+}
+
+.market-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.market-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.market-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+
+.market-item-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.market-item .symbol {
+  font-weight: 600;
+  color: #fff;
+}
+
+.market-item .change {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.market-item .change.positive {
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.market-item .change.negative {
+  color: #ff5757;
+  background: rgba(255, 87, 87, 0.1);
+}
+
+.market-item-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.top-performers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.performer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.performer-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+
+.performer-item .symbol {
+  font-weight: 500;
+  color: #fff;
+}
+
+.performer-item .change {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.performer-item .change.positive {
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.performer-item .change.negative {
+  color: #ff5757;
+  background: rgba(255, 87, 87, 0.1);
+}
+
+.widgets-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.widget-control-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a0a0a0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.widget-control-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.widget-control-btn.active {
+  background: #64ffda;
+  color: #1a1a1a;
+  border-color: #64ffda;
+}
+
+.widgets-loading {
+  padding: 2rem;
+  text-align: center;
+  color: #a0a0a0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1200px) {
+  .widget-large {
+    grid-column: span 12;
+  }
+
+  .widget-medium {
+    grid-column: span 6;
+  }
+
+  .widget-small {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  .widgets-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .widget-large,
+  .widget-medium,
+  .widget-small {
+    grid-column: span 1;
+  }
+
+  .widgets-controls {
+    flex-direction: column;
+  }
+
+  .widget-control-btn {
+    width: 100%;
+  }
+
+  .market-item:hover,
+  .performer-item:hover {
+    transform: none;
+  }
+}
+
+/* Animation for widget transitions */
+@keyframes widgetAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.widget {
+  animation: widgetAppear 0.3s ease-out;
+}
